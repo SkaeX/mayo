@@ -1,0 +1,6 @@
+# Local development dependencies go here
+-r base.txt
+
+# For development debug toolbar
+django-debug-toolbar==1.7
+sqlparse==0.2.3

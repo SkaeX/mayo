@@ -1,0 +1,9 @@
+# The main sauce
+Django==1.11
+
+# For configuration
+django-environ==0.4.1
+
+# For time or so
+pytz==2017.2
+six==1.10.0
