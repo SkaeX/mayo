@@ -4,4 +4,5 @@ TESTING_PASSWORD = 'password'
 
 
 class User(AbstractUser):
-    pass
+    def __str__(self):
+        return self.username
