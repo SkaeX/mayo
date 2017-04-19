@@ -29,11 +29,11 @@ body {
 }
 
 .login {
-  margin-top: 10%
+  margin-top: 5%
 }
 
 .main {
-  margin-top: 50px;
+  margin-top: 0%;
 }
 
 .landing .btn {
@@ -43,4 +43,29 @@ body {
 .landing .btn:focus {
   border-color: #000000;
   outline: none
+}
+
+.panel {
+  border: none;
+}
+
+.form-control {
+  -webkit-border-radius:;
+  -moz-border-radius:;
+  border-radius: 0em;
+}
+
+.form-control:focus {
+  border-color: #2c3e50;
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.btn {
+  border-radius: 0em;
+}
+
+.link-wo-line:hover {
+    text-decoration: none;
 }

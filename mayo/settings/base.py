@@ -48,6 +48,8 @@ THIRD_PARTY_APPS = (
     'allauth',  # registration
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
+
+    'crispy_forms', # Crispy Forms
 )
 
 # Apps specific for this project go here.
@@ -59,6 +61,9 @@ LOCAL_APPS = (
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
+
+# See: http://django-crispy-forms.readthedocs.io/en/latest/install.html#template-packs
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 MIDDLEWARE = (
     'django.middleware.security.SecurityMiddleware',
@@ -167,6 +172,7 @@ EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', default='django.core.mail.backends.s
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_ALLOW_REGISTRATION = env.bool('DJANGO_ACCOUNT_ALLOW_REGISTRATION', True)
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_ADAPTER = 'accounts.adapters.AccountAdapter'
 SOCIALACCOUNT_ADAPTER = 'accounts.adapters.SocialAccountAdapter'
 

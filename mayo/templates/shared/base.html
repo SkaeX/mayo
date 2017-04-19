@@ -24,9 +24,11 @@
     </div>
   </div>
 </div>
+    {% include 'shared/messages.html' %}
     <div class="content">
         {% block content %} {% endblock %}
     </div>
+    {% include 'shared/footer.html' %}
     <script src="{% static 'js/vendor/jquery-1.11.2.min.js' %}"></script>
     <script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/vendor/bootswatch.js' %}"></script>
