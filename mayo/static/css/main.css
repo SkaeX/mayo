@@ -50,9 +50,9 @@ body {
 }
 
 .form-control {
-  -webkit-border-radius:;
-  -moz-border-radius:;
-  border-radius: 0em;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
 }
 
 .form-control:focus {
@@ -63,7 +63,7 @@ body {
 }
 
 .btn {
-  border-radius: 0em;
+  border-radius: 0;
 }
 
 .link-wo-line:hover {
