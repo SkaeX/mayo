@@ -175,10 +175,12 @@ ACCOUNT_ALLOW_REGISTRATION = env.bool('DJANGO_ACCOUNT_ALLOW_REGISTRATION', True)
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_ADAPTER = 'accounts.adapters.AccountAdapter'
 ACCOUNT_SIGNUP_FORM_CLASS = 'accounts.forms.MayoSignupForm'
+ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = True
 SOCIALACCOUNT_ADAPTER = 'accounts.adapters.SocialAccountAdapter'
 
 
-LOGIN_REDIRECT_URL = 'users:redirect'
+LOGIN_REDIRECT_URL = 'profile:home'
+ACCOUNT_LOGOUT_REDIRECT_URL = 'profile:home'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#site-id
 SITE_ID = 1
