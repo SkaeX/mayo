@@ -26,11 +26,11 @@
           <ul class="dropdown-menu" aria-labelledby="user">
             <li><a href="{% url 'account_change_password' %}">Manage password</a></li>
             <li class="divider"></li>
-            <li><a href="{% url 'account_logout' %}">Logout</a></li>
+            <li><a href="{% url 'account_logout' %}">Sign out</a></li>
           </ul>
         </li>
         {% else %}
-        <li><a href="{% url 'account_login' %}">Login</a></li>
+        <li><a href="{% url 'account_login' %}">Sign in</a></li>
         {% endif %}
       </ul>
 
