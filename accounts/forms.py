@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.models import Group
+from .models import User
 
 
 class MayoSignupForm(forms.Form):
@@ -17,3 +18,26 @@ class MayoSignupForm(forms.Form):
         user.first_name = self.cleaned_data['first_name']
         user.last_name = self.cleaned_data['last_name']
         user.save()
+
+
+class UserEditForm(forms.models.ModelForm):
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'email', 'groups', 'is_active')
+        widgets = {
+            'first_name': forms.fields.TextInput(attrs={
+                'placeholder': 'Enter a first name',
+                'class': 'form-control',
+            }),
+            'last_name': forms.fields.TextInput(attrs={
+                'placeholder': 'Enter a last name',
+                'class': 'form-control',
+            }),
+            'email': forms.fields.EmailInput(attrs={
+                'placeholder': 'Enter an email',
+                'class': 'form-control',
+            }),
+            'groups': forms.fields.SelectMultiple(attrs={
+                'class': 'form-control',
+            }),
+        }

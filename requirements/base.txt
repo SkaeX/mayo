@@ -12,3 +12,6 @@ six==1.10.0
 
 # For user registration, either via email or social
 django-allauth==0.31.0
+
+# For CBVs
+django-braces==1.11.0
