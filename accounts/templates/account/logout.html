@@ -1,0 +1,20 @@
+{% extends "shared/base.html" %}
+
+
+{% block title %}
+{{ block.super }} | Logout
+{% endblock %}
+{% block content %}
+<div class="container main">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-2">
+		<div class="page-header">
+		    <h4 id="buttons">Sign out</h4>
+		</div>
+            <p>Are you sure you want to sign out?</p>
+            {% include "shared/form.html" %}
+
+		</div>
+	</div>
+</div>
+{% endblock %}

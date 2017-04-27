@@ -7,3 +7,13 @@ django-environ==0.4.1
 # For time or so
 pytz==2017.2
 six==1.10.0
+
+
+
+# For user registration, either via email or social
+django-allauth==0.31.0
+
+# For CBVs
+django-braces==1.11.0
+
+django-crispy-forms==1.6.1

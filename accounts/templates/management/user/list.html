@@ -1,0 +1,40 @@
+{% extends "shared/management.html" %}
+
+{% block title %}
+{{ block.super }} | Users
+{% endblock %}
+{% block mgmtcontent %}
+<div class="page-header">
+    <h4 id="buttons">Management | Users</h4>
+</div>
+<table class="table table-hover">
+	<thead>
+	<tr>
+		<th>Name(s)</th>
+		<th>Email</th>
+		<th>Username</th>
+		<th>Group(s)</th>
+		<th>Last Login</th>
+		<th></th>
+	</tr>
+	</thead>
+    <tbody>
+	   {% for user in object_list %}
+         <tr>
+           <td>{{ user.first_name }} {{ user.last_name }}</td>
+           <td>{{ user.email }}</td>
+           <td>{{ user.username }}</td>
+           <td>{% for group in user.groups.all %}
+           			<span class="label label-info">{{ group.name }}</span>
+           		{% endfor %}
+           </td>
+           <td>{{ user.last_login}}</td>
+           <td><a href="{% url 'profile:user_edit' user.id %}" ><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
+
+  		 </tr>
+       {% endfor %}
+	</tbody>
+
+</table>
+{% include "shared/pagination.html" %}
+{% endblock %}

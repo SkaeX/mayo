@@ -3,4 +3,6 @@
 
 # For development debug toolbar
 django-debug-toolbar==1.7
-sqlparse==0.2.3
+
+# For factories
+factory_boy
