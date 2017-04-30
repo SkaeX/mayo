@@ -1,0 +1,26 @@
+{% extends "shared/base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2 class="thin-h text-center">About Us</h2>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+
+<p>Mentor-A-YOuth (MAYO) is a social innovation project aiming to empower youths by matching them with suitable
+    mentors in their chosen career interests. We are building a community of people from all works of
+    life to come together and support our mentees in advancing their careers. </p>
+            <p>With our innovative online portal that matches you to suitable mentors based on interests, we
+                are confident mentors and mentees will find a balance and succeed together in no time.
+                Our digital solution gives you a unique opportunity of connecting with mentors from all
+                over the world.</p>
+            <p>As a mentee, through the help of your mentor, you will enjoy a career guidance and networking with
+                professionals in your sector. You will achieve professional development and be motivated to
+                progress in your career path. MAYO is all about connecting, sharing and making progress.
+                Wouldn’t you want to be a part of this?</p>
+            <p>
+                <a class="btn btn-default" href="{% url 'account_signup' %}">Join Us</a>
+            </p>
+        </div>
+        </div>
+    </div>
+{% endblock %}

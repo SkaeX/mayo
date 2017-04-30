@@ -16,9 +16,14 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.conf import settings
 from django.contrib import admin
+from .views import index, contact, about, faqs
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', index),
+    url(r'^contact/', contact),
+    url(r'^about/', about),
+    url(r'^faqs/', faqs),
     url(r'^accounts/', include('allauth.urls')),
     url(r'^profile/', include('accounts.urls', namespace='profile'))
 ]

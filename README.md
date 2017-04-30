@@ -21,7 +21,7 @@ To set up this project on a local machine:
     * ``cp env.example mayo/settings/.env``
 7. Runserver with
     * ``python manage.py runserver``
-    * ``Go to http://127.0.0.1/profile/``
+    * ``Go to http://127.0.0.1:8000``
 
 ## Contributors
 

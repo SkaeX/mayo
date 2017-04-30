@@ -1,0 +1,36 @@
+{% extends "shared/base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <h2 class="thin-h text-center">Frequently Asked Questions (FAQs)</h2>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+<h4 class="thin-h">What is MAYO?</h4>
+<p>Mentor-A-YOuth (MAYO) is a social innovation project aiming to empower youths by matching them with suitable
+    mentors in their chosen career interests. We are building a community of people from all works of
+    life to come together and support our mentees in advancing their careers. </p>
+            <h4 class="thin-h">Who is a mentee?</h4>
+<p>Anyone (youth) who needs mentorship.</p>
+            <h4 class="thin-h">Who is a mentor?</h4>
+<p>A mentor is someone who: <ul><li>Is willing to sacrifice 2 hours in a month to communicate to mentee.</li>
+<li>Has at least 5 years of continuing professional progress after graduation</li>
+<li>Can at least mentor one person within 5 months</li>
+<li>Agree to 5 months commitment to the programme</li>
+</ul> </p>
+            <h4 class="thin-h">How long does the mentoring period last?</h4>
+<p>A mentoring match will last for 5 months.</p>
+            <h4 class="thin-h">Is there an application period?</h4>
+<p>Yes for our mentees, and no for our mentors. Always watch out for call for applications.
+    Mentors are always welcome to sign up.</p>
+
+            <h4 class="thin-h">How to join?</h4>
+<p>Just follow the button below and the rest is for us to worry about.</p>
+
+            <p>
+                <a class="btn btn-default" href="{% url 'account_signup' %}">Join Us</a>
+            </p>
+        </div>
+        </div>
+    </div>
+{% endblock %}
