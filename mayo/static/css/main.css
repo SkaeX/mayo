@@ -9,6 +9,7 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
   padding-top: 60px;
+    font-weight: 200;
 }
 .footer {
   position: absolute;
@@ -66,7 +67,7 @@ body {
   border-radius: 0;
 }
 
-.link-wo-line:hover {
+.link-wo-line:hover, .link-wo-line:focus {
     text-decoration: none;
 }
 
@@ -142,5 +143,23 @@ body {
     width: 40%;
     margin: auto;
     text-align: center;
+}
+
+
+.index {
+    font-weight: 200;
+}
+
+.tagline {
+    font-weight: 100;
+    padding: 10%
+}
+
+.thin-h {
+    font-weight: 200;
+}
+
+.special-hr {
+    border-bottom: 2px #18bc9c solid;
 }
 
