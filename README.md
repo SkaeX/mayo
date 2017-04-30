@@ -19,7 +19,10 @@ To set up this project on a local machine:
     * ``pip install -r requirements/development.txt``
 6. Copy example environment file with
     * ``cp env.example mayo/settings/.env``
-7. Runserver with
+7. Set up database with:
+    * ``python manage.py makemigrations``
+    * ``python manage.py migrate``
+8. Runserver with
     * ``python manage.py runserver``
     * ``Go to http://127.0.0.1:8000``
 
