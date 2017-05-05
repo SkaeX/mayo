@@ -1,0 +1,26 @@
+# The main sauce
+Django==1.11
+
+# For configuration
+django-environ==0.4.1
+
+# For time or so
+pytz==2017.2
+six==1.10.0
+
+
+
+# For user registration, either via email or social
+django-allauth==0.31.0
+
+# For CBVs
+django-braces==1.11.0
+
+django-crispy-forms==1.6.1
+
+
+# For heroku
+gunicorn==19.6.0
+psycopg2==2.6.2
+whitenoise==2.0.6
+dj-database-url==0.4.1
