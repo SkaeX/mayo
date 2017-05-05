@@ -28,7 +28,6 @@ env.read_env('.env')
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 
-
 ALLOWED_HOSTS = []
 DEBUG = env.bool('DJANGO_DEBUG', False)
 
@@ -148,7 +147,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-STATIC_ROOT = os.path.join(ROOT_DIR, 'staticfiles')
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'
 
@@ -189,3 +189,5 @@ ACCOUNT_LOGOUT_REDIRECT_URL = 'profile:home'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#site-id
 SITE_ID = 1
+
+
