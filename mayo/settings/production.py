@@ -15,5 +15,6 @@ SECRET_KEY = env('DJANGO_SECRET_KEY', default='y7v%p_9i9y(9rqm1r3r2uko*ei_j*8vgj
 ALLOWED_HOSTS += ['0.0.0.0', 'young-thicket-12790.herokuapp.com']
 
 
-# import dj_database_url
-# DATABASES['default'] = dj_database_url.parse('sqlite:///db.sqlite3', conn_max_age=600)
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
