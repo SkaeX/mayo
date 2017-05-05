@@ -16,4 +16,4 @@ ALLOWED_HOSTS += ['0.0.0.0', 'young-thicket-12790.herokuapp.com']
 
 
 import dj_database_url
-DATABASES['default'] = dj_database_url.config()
+DATABASES['default'] = dj_database_url.parse('sqlite:///db.sqlite3', conn_max_age=600)
