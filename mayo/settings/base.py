@@ -21,8 +21,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 ROOT_DIR = environ.Path(__file__) - 3
 SHARED_DIR = ROOT_DIR.path('mayo')
 
-env = environ.Env()
-env.read_env('.env')
+# env = environ.Env()
+# env.read_env('.env')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
