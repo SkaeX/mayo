@@ -1,0 +1,11 @@
+{% extends "shared/management.html" %}
+
+{% block title %}
+{{ block.super }} | Requests
+{% endblock %}
+{% block mgmtcontent %}
+<div class="page-header">
+    <h4 id="buttons">Request Form</h4>
+</div>
+{% include "shared/form.html" %}
+{% endblock %}

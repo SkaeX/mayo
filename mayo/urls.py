@@ -25,7 +25,8 @@ urlpatterns = [
     url(r'^about/', about),
     url(r'^faqs/', faqs),
     url(r'^accounts/', include('allauth.urls')),
-    url(r'^profile/', include('accounts.urls', namespace='profile'))
+    url(r'^profile/', include('accounts.urls', namespace='profile')),
+    url(r'^programs/', include('programs.urls', namespace='programs'))
 ]
 
 if settings.DEBUG:

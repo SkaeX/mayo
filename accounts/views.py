@@ -24,7 +24,6 @@ class UserListView(PermissionRequiredMixin, UserMixin, ListView):
     paginate_by = 10
 
 
-
 class UserUpdateView(PermissionRequiredMixin, UserMixin, UpdateView):
     permission_required = 'auth.change_user'
     template_name = 'management/user/form.html'

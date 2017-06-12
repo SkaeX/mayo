@@ -1,0 +1,34 @@
+{% extends "shared/management.html" %}
+
+{% block title %}
+{{ block.super }} | Fields
+{% endblock %}
+{% block mgmtcontent %}
+<div class="page-header">
+    <h4 id="buttons">Management | Fields</h4>
+</div>
+<div class="pull-right">
+<a href="{% url 'programs:new_field' %}" type="button" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Field</a>
+</div>
+<table class="table table-hover">
+	<thead>
+	<tr>
+		<th>Title</th>
+		<th>Description</th>
+		<th></th>
+	</tr>
+	</thead>
+    <tbody>
+	   {% for field in object_list %}
+         <tr>
+           <td>{{ field.title }}</td>
+           <td>{{ field.description }}</td>
+           <td><a href="{% url 'programs:field_edit' field.id %}" ><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
+
+  		 </tr>
+       {% endfor %}
+	</tbody>
+
+</table>
+{% include "shared/pagination.html" %}
+{% endblock %}

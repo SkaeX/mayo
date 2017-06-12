@@ -1,0 +1,11 @@
+{% extends "shared/management.html" %}
+
+{% block title %}
+{{ block.super }} | Field
+{% endblock %}
+{% block mgmtcontent %}
+<div class="page-header">
+    <h4 id="buttons">Field Form</h4>
+</div>
+{% include "shared/form.html" %}
+{% endblock %}

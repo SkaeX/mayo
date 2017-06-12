@@ -20,6 +20,15 @@
             <li class="{% active 'users' %}">
                   <a href="{% url 'profile:users_list' %}">Users <span class="sr-only">(current)</span></a>
               </li>
+                <li class="{% active 'programs' %}">
+                  <a href="{% url 'programs:programs_list' %}">Programs <span class="sr-only">(current)</span></a>
+              </li>
+                <li class="{% active 'fields' %}">
+                  <a href="{% url 'programs:fields_list' %}">Fields <span class="sr-only">(current)</span></a>
+              </li>
+                 <li class="{% active 'requests' %}">
+                  <a href="{% url 'programs:requests_list' %}">Requests <span class="sr-only">(current)</span></a>
+              </li>
 
           </ul>
             {% endif %}
