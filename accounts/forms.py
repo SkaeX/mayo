@@ -11,19 +11,21 @@ class MayoSignupForm(forms.Form):
     role = forms.ChoiceField(choices=roles, label='Role', initial=roles[0][0])
     first_name = forms.CharField(max_length=50, label='First Name', widget=forms.TextInput(attrs={'autofocus': 'autofocus'}))
     last_name = forms.CharField(max_length=50, label='Last Name')
+    phone_number = forms.CharField(max_length=50, label='Phone Number')
 
     def signup(self, request, user):
         grp = Group.objects.get(name=self.cleaned_data['role'])
         user.groups.add(grp)
         user.first_name = self.cleaned_data['first_name']
         user.last_name = self.cleaned_data['last_name']
+        user.phone_number = self.cleaned_data['phone_number']
         user.save()
 
 
 class UserEditForm(forms.models.ModelForm):
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'email', 'groups', 'is_active')
+        fields = ('first_name', 'last_name', 'email', 'groups', 'is_active', 'phone_number', 'is_verified')
         widgets = {
             'first_name': forms.fields.TextInput(attrs={
                 'placeholder': 'Enter a first name',
