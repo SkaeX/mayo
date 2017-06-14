@@ -31,7 +31,7 @@
   <div class="media-body">
     <h5 class="media-heading">{{ mentor.first_name }} {{ mentor.last_name }} <span class="label label-warning">Mentor</span></h5>
     Email: {{ mentor.email }}<br>
-    Phone: {{ mentor.phone }}
+    Phone: {{ mentor.phone_number }}
   </div>
     {% endfor %}
 <hr>
@@ -40,7 +40,7 @@
   <div class="media-body text-right">
     <h6 class="media-heading">{{ mentor.first_name }} {{ mentor.last_name }} <span class="label label-success">Mentee</span></h6>
     Email: {{ mentee.email }}<br>
-    Phone: {{ mentee.phone }}
+    Phone: {{ mentee.phone_number }}
   </div>
 
           <div class="media-right">
