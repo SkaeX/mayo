@@ -2,6 +2,16 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
+    # Non management
+    url(r'^myprograms/$',
+        views.IndividualProgramListView.as_view(),
+        name='myprograms_list'),
+    url(r'^myprograms/(?P<pk>\d+)/$',
+        views.IndividualProgramDetailView.as_view(),
+        name='myprogram_detail'),
+    url(r'^myprograms/new/$',
+        views.IndividualPrequestAddView.as_view(),
+        name='new_myprogram'),
 
 
     # Management
@@ -15,15 +25,18 @@ urlpatterns = [
         views.FieldUpdateView.as_view(),
         name='field_edit'),
 
-    url(r'^requests/$',
-        views.RequestListView.as_view(),
-        name='requests_list'),
-    url(r'^requests/new/$',
-        views.RequestAddView.as_view(),
-        name='new_request'),
-    url(r'^requests/(?P<pk>\d+)/edit/$',
-        views.RequestUpdateView.as_view(),
-        name='request_edit'),
+    url(r'^prequests/$',
+        views.PrequestListView.as_view(),
+        name='prequests_list'),
+    url(r'^prequests/new/$',
+        views.PrequestAddView.as_view(),
+        name='new_prequest'),
+    url(r'^prequests/(?P<pk>\d+)/edit/$',
+        views.PrequestUpdateView.as_view(),
+        name='prequest_edit'),
+    url(r'^prequests/(?P<pk>\d+)/delete/$',
+        views.PrequestDeleteView.as_view(),
+        name='prequest_delete'),
 
     url(r'^programs/$',
         views.ProgramListView.as_view(),

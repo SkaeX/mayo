@@ -13,7 +13,9 @@
             <li class="{% active 'home' %}">
                 <a href="{% url 'profile:home' %}">Dashboard <span class="sr-only">(current)</span></a>
             </li>
-
+            <li class="{% active 'myprograms' %}">
+                <a href="{% url 'programs:myprograms_list' %}">My Programs<span class="sr-only">(current)</span></a>
+            </li>
           </ul>
             {% if request.user.is_staff %}
             <ul class="nav nav-sidebar">
@@ -27,7 +29,7 @@
                   <a href="{% url 'programs:fields_list' %}">Fields <span class="sr-only">(current)</span></a>
               </li>
                  <li class="{% active 'requests' %}">
-                  <a href="{% url 'programs:requests_list' %}">Requests <span class="sr-only">(current)</span></a>
+                  <a href="{% url 'programs:prequests_list' %}">Requests <span class="sr-only">(current)</span></a>
               </li>
 
           </ul>

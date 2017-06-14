@@ -1,0 +1,16 @@
+{% extends "shared/management.html" %}
+
+{% block title %}
+{{ block.super }} | Requests
+{% endblock %}
+{% block mgmtcontent %}
+<div class="page-header">
+    <h4 id="buttons">Delete Prequest</h4>
+</div>
+    <form action="" method="post">
+	 {% csrf_token %}
+	 <p>Are you sure you want to delete the request by {{ object.requester }} on {{ object.field }}?</p>
+	 <button type="submit" class="btn btn-success">Yes</button>
+	 <a class="btn btn-danger" href="{% url 'programs:prequests_list' %}">No</a>
+	</form>
+{% endblock %}

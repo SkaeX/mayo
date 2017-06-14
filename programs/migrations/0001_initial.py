@@ -36,7 +36,7 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='Request',
+            name='Prequest',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('pending', models.BooleanField(default=True)),
@@ -47,6 +47,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='program',
             name='request',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='programs.Request'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='programs.Prequest'),
         ),
     ]
