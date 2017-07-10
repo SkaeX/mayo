@@ -164,3 +164,6 @@ body {
     border-bottom: 2px #18bc9c solid;
 }
 
+.no-underline {
+  text-decoration: none;
+}

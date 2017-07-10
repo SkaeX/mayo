@@ -186,3 +186,9 @@ ACCOUNT_LOGOUT_REDIRECT_URL = 'profile:home'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#site-id
 SITE_ID = 1
+
+
+# MailGUN Configurations
+MAILGUN_ACCESS_KEY = env('MAILGUN_ACCESS_KEY', default='no_key')
+MAILGUN_SERVER_NAME = env('MAILGUN_SERVER_NAME', default='no_server')
+DEFAULT_FROM_EMAIL = 'noreply@mentor-a-youth.org'

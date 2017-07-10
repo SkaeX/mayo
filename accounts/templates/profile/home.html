@@ -7,8 +7,15 @@
 {% block mgmtcontent %}
     <h1 class="page-header">Dashboard</h1>
     <div class="jumbotron">
-        <h1>Welcome!</h1>
-        <p>Welcome to the Mentor a youth initiative. We are really glad to have you here.
-                Looking forward to exciting times ahead.</p>
+        <h1>Welcome {{ request.user.firstname }}!
+            {% if request.user.is_verified %}
+                <span class="label label-info">Verified</span>
+            {% else %}
+                <span class="label label-warning">Unverified</span>
+            {% endif %}
+        </h1>
+        <p>Welcome to the Mentor a youth initiative (MAYO). We are really glad to have you here.
+                Looking forward to exciting times ahead. If you just signed up, we will be contacting you for verification.
+        Otherwise, head over to the 'My programs' tab to get started.</p>
     </div>
 {% endblock %}

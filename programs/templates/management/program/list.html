@@ -19,6 +19,8 @@
         <th>Status</th>
         <th>Mentors</th>
         <th>Mentees</th>
+        <th>Start</th>
+        <th>End</th>
 		<th></th>
 	</tr>
 	</thead>
@@ -27,11 +29,12 @@
          <tr>
            <td>{{ program.title }}</td>
            <td>{{ program.description }}</td>
-           <td>{{ program.request }}</td>
+           <td>{{ program.prequest }}</td>
            <td>{% if program.in_progress %}
-                <span class="label label-success">In progress</span>
+                <span class="label label-success">In progress</span><br>
+               <a href="{% url 'programs:program_end' program.id %}" type="button" class="btn btn-danger btn-xs">**End program**</a>
                {% else %}
-               <span class="label label-danger">Not in progress</span>
+               <span class="label label-default">Ended</span>
                {% endif %}
              </td>
            <td>{% for mentor in program.mentors.all %}
@@ -42,6 +45,8 @@
            			<span class="label label-info">{{ mentee.email }}</span><br>
            		{% endfor %}
            </td>
+             <td>{{ program.start }}</td>
+             <td>{{ program.end }}</td>
            <td><a href="{% url 'programs:program_edit' program.id %}" ><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
 
   		 </tr>

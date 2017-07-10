@@ -9,4 +9,9 @@ class User(AbstractUser):
     phone_number = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.email
+        groups = self.groups.all()
+        group_str = ''
+        for group in groups:
+            group_str += group.name + '|'
+
+        return '[%s] %s' % (group_str, self.email)

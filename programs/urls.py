@@ -12,6 +12,9 @@ urlpatterns = [
     url(r'^myprograms/new/$',
         views.IndividualPrequestAddView.as_view(),
         name='new_myprogram'),
+    url(r'^myprequests/$',
+        views.IndividualPrequestListView.as_view(),
+        name='myprequests_list'),
 
 
     # Management
@@ -47,4 +50,7 @@ urlpatterns = [
     url(r'^programs/(?P<pk>\d+)/edit/$',
         views.ProgramUpdateView.as_view(),
         name='program_edit'),
+    url(r'^programs/(?P<id>\d+)/end/$',
+        views.ProgramEndView.as_view(),
+        name='program_end'),
 ]

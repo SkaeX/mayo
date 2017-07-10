@@ -1,4 +1,8 @@
+import datetime
+from django.shortcuts import redirect
+from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
+from django.views.generic import View
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
@@ -79,6 +83,16 @@ class IndividualPrequestAddView(PermissionRequiredMixin, PrequestEditMixin, Crea
         return super(IndividualPrequestAddView, self).form_valid(form)
 
 
+class IndividualPrequestListView(PermissionRequiredMixin, PrequestMixin, ListView):
+    permission_required = 'programs.add_prequest'
+    template_name = 'prequest/list.html'
+    paginate_by = 10
+
+    def get_queryset(self):
+        qs = super(IndividualPrequestListView, self).get_queryset()
+        return qs.filter(requester=self.request.user)
+
+
 class ProgramMixin(LoginRequiredMixin, SuccessMessageMixin):
     model = Program
 
@@ -128,7 +142,26 @@ class ProgramAddView(PermissionRequiredMixin, ProgramEditMixin, CreateView):
     permission_required = 'programs.add_program'
     success_message = "%(title)s program was added successfully"
 
+    def form_valid(self, form):
+        prog = form.instance
+        prog.start = datetime.datetime.now()
+        prog.prequest.pending = False
+        prog.prequest.save()
+        return super(ProgramAddView, self).form_valid(form)
+
 
 class ProgramUpdateView(PermissionRequiredMixin, ProgramEditMixin, UpdateView):
     permission_required = 'programs.change_program'
     success_message = "%(title)s program was updated successfully"
+
+
+class ProgramEndView(LoginRequiredMixin, PermissionRequiredMixin, View):
+    permission_required = 'programs.change_program'
+
+    def get(self, request, *args, **kwargs):
+        program = Program.objects.get(id=kwargs['id'])
+        program.end = datetime.datetime.now()
+        program.in_progress = False
+        program.save()
+        messages.success(request, '%s was ended successfully' % program)
+        return redirect(reverse_lazy('programs:programs_list'))
