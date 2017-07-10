@@ -57,6 +57,7 @@ LOCAL_APPS = (
     # custom users app
     'accounts',
     # Your stuff: custom apps go here
+    'programs',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -191,3 +192,7 @@ ACCOUNT_LOGOUT_REDIRECT_URL = 'profile:home'
 SITE_ID = 1
 
 
+# MailGUN Configurations
+MAILGUN_ACCESS_KEY = env('MAILGUN_ACCESS_KEY', default='no_key')
+MAILGUN_SERVER_NAME = env('MAILGUN_SERVER_NAME', default='no_server')
+DEFAULT_FROM_EMAIL = 'noreply@mentor-a-youth.org'

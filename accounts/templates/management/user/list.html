@@ -13,8 +13,10 @@
 		<th>Name(s)</th>
 		<th>Email</th>
 		<th>Username</th>
+		<th>Phone Number</th>
 		<th>Group(s)</th>
 		<th>Last Login</th>
+		<th></th>
 		<th></th>
 	</tr>
 	</thead>
@@ -24,7 +26,14 @@
            <td>{{ user.first_name }} {{ user.last_name }}</td>
            <td>{{ user.email }}</td>
            <td>{{ user.username }}</td>
-           <td>{% for group in user.groups.all %}
+			 <td>{{ user.phone_number }}</td>
+           <td>
+			   {% if user.is_verified %}
+			   	<span class="label label-info">Verified</span><br>
+			   {% else %}
+			   	<span class="label label-warning">Unverified</span><br>
+			   {% endif %}
+			   {% for group in user.groups.all %}
            			<span class="label label-info">{{ group.name }}</span>
            		{% endfor %}
            </td>

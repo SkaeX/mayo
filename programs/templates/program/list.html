@@ -1,0 +1,60 @@
+{% extends "shared/management.html" %}
+
+{% block title %}
+{{ block.super }} | Programs
+{% endblock %}
+{% block mgmtcontent %}
+<div class="page-header">
+    <h4 id="buttons">My Mentorship Programs</h4>
+</div>
+{% if request.user.is_verified %}
+<div class="pull-right">
+<a href="{% url 'programs:new_myprogram' %}" type="button" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Request for a Mentorship Program</a>
+</div>
+{% endif %}
+<table class="table table-hover">
+	<thead>
+	<tr>
+		<th>Title</th>
+		<th>Description</th>
+        <th>Prequest</th>
+        <th>Status</th>
+        <th>Mentors</th>
+        <th>Mentees</th>
+		<th></th>
+	</tr>
+	</thead>
+    <tbody>
+	   {% for program in object_list %}
+         <tr>
+           <td>{{ program.title }}</td>
+           <td>{{ program.description }}</td>
+           <td>{{ program.request }}</td>
+           <td>{% if program.in_progress %}
+                <span class="label label-success">In progress</span>
+               {% else %}
+               <span class="label label-danger">Ended</span>
+               {% endif %}
+             </td>
+           <td>{% for mentor in program.mentors.all %}
+           			<span class="label label-info">{{ mentor.email }}</span>
+           		{% endfor %}
+           </td>
+           <td>{% for mentee in program.mentees.all %}
+           			<span class="label label-info">{{ mentee.email }}</span><br>
+           		{% endfor %}
+           </td>
+           <td><a href="{% url 'programs:myprogram_detail' program.id %}" ><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></td>
+
+  		 </tr>
+       {% empty %}
+        <tr>
+            <td colspan="7"><div class="jumbotron"><h2>Sorry</h2> you do not have any mentorship program at the moment. Please click the request button above to
+                request for one. If there is no request button, please contact us for verification.</div></td>
+        </tr>
+       {% endfor %}
+	</tbody>
+
+</table>
+{% include "shared/pagination.html" %}
+{% endblock %}

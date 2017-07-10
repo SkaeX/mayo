@@ -1,0 +1,57 @@
+{% extends "shared/management.html" %}
+{% load staticfiles %}
+
+{% block title %}
+{{ block.super }} | Program
+{% endblock %}
+{% block mgmtcontent %}
+<div class="page-header">
+    <h4 id="buttons">My Mentorship Program</h4>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{ object.title }} Mentorship program {% if object.in_progress %}
+        <span class="label label-success">In progress</span>
+      {% else %}
+        <span class="label label-danger">Not in progress</span>
+      {% endif %}</h3>
+
+      <p>{{ object.description }}</p>
+  </div>
+  <div class="panel-body">
+
+      {% for mentor in object.mentors.all %}
+      <div class="media">
+  <div class="media-left">
+    <a href="#">
+      <img class="media-object" src="{% static 'img/64x64.png' %}" alt="Picture of {{ mentor.email }}">
+    </a>
+  </div>
+  <div class="media-body">
+    <h5 class="media-heading">{{ mentor.first_name }} {{ mentor.last_name }} <span class="label label-warning">Mentor</span></h5>
+    Email: {{ mentor.email }}<br>
+    Phone: {{ mentor.phone_number }}
+  </div>
+    {% endfor %}
+<hr>
+          {% for mentee in object.mentees.all %}
+      <div class="media">
+  <div class="media-body text-right">
+    <h6 class="media-heading">{{ mentor.first_name }} {{ mentor.last_name }} <span class="label label-success">Mentee</span></h6>
+    Email: {{ mentee.email }}<br>
+    Phone: {{ mentee.phone_number }}
+  </div>
+
+          <div class="media-right">
+    <a href="#">
+      <img class="media-object" src="{% static 'img/64x64.png' %}" alt="Picture of {{ mentee.email }}">
+    </a>
+  </div>
+    {% endfor %}
+
+
+</div>
+  </div>
+</div>
+{% endblock %}

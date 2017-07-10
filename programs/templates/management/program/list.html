@@ -1,0 +1,58 @@
+{% extends "shared/management.html" %}
+
+{% block title %}
+{{ block.super }} | Programs
+{% endblock %}
+{% block mgmtcontent %}
+<div class="page-header">
+    <h4 id="buttons">Management | Programs</h4>
+</div>
+<div class="pull-right">
+<a href="{% url 'programs:new_program' %}" type="button" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Program</a>
+</div>
+<table class="table table-hover">
+	<thead>
+	<tr>
+		<th>Title</th>
+		<th>Description</th>
+        <th>Request</th>
+        <th>Status</th>
+        <th>Mentors</th>
+        <th>Mentees</th>
+        <th>Start</th>
+        <th>End</th>
+		<th></th>
+	</tr>
+	</thead>
+    <tbody>
+	   {% for program in object_list %}
+         <tr>
+           <td>{{ program.title }}</td>
+           <td>{{ program.description }}</td>
+           <td>{{ program.prequest }}</td>
+           <td>{% if program.in_progress %}
+                <span class="label label-success">In progress</span><br>
+               <a href="{% url 'programs:program_end' program.id %}" type="button" class="btn btn-danger btn-xs">**End program**</a>
+               {% else %}
+               <span class="label label-default">Ended</span>
+               {% endif %}
+             </td>
+           <td>{% for mentor in program.mentors.all %}
+           			<span class="label label-info">{{ mentor.email }}</span><br>
+           		{% endfor %}
+           </td>
+           <td>{% for mentee in program.mentees.all %}
+           			<span class="label label-info">{{ mentee.email }}</span><br>
+           		{% endfor %}
+           </td>
+             <td>{{ program.start }}</td>
+             <td>{{ program.end }}</td>
+           <td><a href="{% url 'programs:program_edit' program.id %}" ><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
+
+  		 </tr>
+       {% endfor %}
+	</tbody>
+
+</table>
+{% include "shared/pagination.html" %}
+{% endblock %}
