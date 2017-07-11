@@ -12,7 +12,7 @@ TEMPLATES[0]['OPTIONS']['debug'] = DEBUG
 SECRET_KEY = env('DJANGO_SECRET_KEY', default='y7v%p_9i9y(9rqm1r3r2uko*ei_j*8vgjtpoyzccqw457j805*')
 
 
-ALLOWED_HOSTS += ['0.0.0.0', 'young-thicket-12790.herokuapp.com']
+ALLOWED_HOSTS += ['0.0.0.0', 'young-thicket-12790.herokuapp.com', 'mentor-a-youth.herokuapp.com']
 
 
 import dj_database_url
